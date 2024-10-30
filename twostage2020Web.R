@@ -1,5 +1,3 @@
-TwoStageInf <- function(p0, p1, n1, R1, nT, RT, x1, m2=nT-n1, x2, conf.level=0.9, two.sided=TRUE, ...){
-                        ## Last update: 2021/8/5
 ## ----------------------------------------------- ##
 ## Proper Inference from Simon's Two-Stage Designs ##
 ## ----------------------------------------------- ##
@@ -60,6 +58,35 @@ TwoStageInf.prob <- function(p0, p1, n1, R1, nT, RT){
         row.names(CHARA) <- c('NULL','ALT')
     list(DESIGN, CHARA)
 }
+
+#######################################
+## Inference from a two-stage design ##
+#######################################
+
+TwoStageInf <- function(p0, p1, n1, R1, nT, RT, x1, m2=nT-n1, x2, conf.level=0.9, two.sided=TRUE, ...){
+                        ## Last update: 2021/8/5
+## ----------------------------------------------- ##
+## Proper Inference from Simon's Two-Stage Designs ##
+## ----------------------------------------------- ##
+## Please cite
+## Koyama T and Chen H. ``Proper inference from Simon's two-stage designs''
+## Statistics in Medicine 27(16), 2008. PMID: 17960777. PMCID: PMC6047527.
+## --------------------- ##
+
+################
+## User input ##
+################
+# p0 ... P[Success under H0]
+# p1 ... P[Success under H1]
+# n1 ... Stage 1 sample size
+# R1 ... Stage 1 critical value
+# nT ... Final planned sample size
+# RT ... Final planned critical value
+# Convention is to use r1 (= R1 - 1) and rT (= RT - 1)
+
+# x1 ... Stage 1 data
+# m2 ... New stage 2 sample size (if changed)
+# x2 ... Stage 2 data
 
 #############
 ## p-value ##
